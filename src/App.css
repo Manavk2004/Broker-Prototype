@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+html{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(38, 38, 38);
+}
+body{
+  width: 400px;
+  height: 600px;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: linear-gradient(black 0%, rgb(64, 62, 62) 40%, #c3a704 100%)
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title-div > h1{
+  font-family: "Black Ops One";
+  font-weight: 700;
+  color: rgb(251, 219, 7);
+  margin-top: 50px;
+  font-size: 35px;
+  opacity: 0.9;
+}
+
+#title-div > img{
+  width: 9rem;
+  height: 9rem;
+}
+
+#information{
+  flex: 1;
+  height: 600px;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+#price-box{
+  border: 2.4px solid rgb(250, 198, 24);
+  width: 80%;
+  height: 20%;
+  border-radius: 10px;
+  color: rgb(251, 219, 7);
+  font-size: 18px;
+  margin-left: 20px;
+  margin-bottom: 15px
+}
+
+#legend{
+  margin-left: 20px;
+  color: rgb(251, 219, 7);
+  font-size: 16px;
+  font-family: "Roboto";
+}
