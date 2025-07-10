@@ -7,9 +7,7 @@ const PORT = 8000
 const __dirname = import.meta.dirname
 
 const server = http.createServer(async (req, res) =>{
-    console.log(__dirname)
-    console.log(req.method)
-    console.log(req.url)
+    console.log(`This is the url ${req.url}`)
     if (req.method === "GET"){
         return await serveFile(__dirname, res, req.url)
 }})

@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import goldBar from "./gold-bar.png"
-import pound from "./pound.png"
 import './App.css'
 
 function App() {
@@ -14,7 +12,7 @@ function App() {
     <>
       <div id="title-div">
         <h1 id="title">GoldDigger</h1>
-        <img src={goldBar}/>
+        <img src="/gold-bar.png"/>
       </div>
       <div id="information">
           <fieldset class="price-box" id="price-box1">
@@ -25,7 +23,7 @@ function App() {
             <legend id="legend">Amount to Invest</legend>
             <div id="price-row">
               <div id="pound-unit">
-                <img id="pound-img" src={pound}/>
+                <img id="pound-img" src="/pound.png"/>
               </div>
               <div id="price">
                 <input onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00'/>

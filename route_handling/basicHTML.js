@@ -16,18 +16,19 @@ const types = {
 function basicInfo(filePath, res, data){
     const ext = path.extname(filePath)
     let contentType = types[ext]
-    res.setHeader("Content-Type", contentType)
+    res.setHeader("Content-Type", `${contentType}`)
+    console.log(res.getHeader("Content-Type"))
     res.statusCode = 200
     res.end(data)
 }
 
 
 export async function serveFile(__dirname, res, url){
-    let filePath = path.join(__dirname, url)
-    console.log(filePath)
+    let filePath = path.join(__dirname, "dist", url)
+    console.log(`This is the filePath ${filePath}`)
 
     if(url === "/api"){
-        filePath = path.join(__dirname, "index.html")
+        filePath = path.join(__dirname, "dist", "index.html")
     }else if (url === "/favicon.ico"){
         res.writeHead(204)
         res.end()
