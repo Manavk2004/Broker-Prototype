@@ -94,6 +94,7 @@ body{
   font-size: 25px;
   font-family: Roboto;
   border: 2px solid rgb(97, 86, 8);
+  cursor: pointer;
 }
 
 #measurement{
@@ -145,5 +146,9 @@ body{
 
 #quantity{
   color: grey;
-  font-size: 25px
+  font-size: 25px;
+  width: 200px;
+  background: none;
+  border: none;
+  margin-top: 4px
 }

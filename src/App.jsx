@@ -24,7 +24,7 @@ function App() {
                 <img id="pound-img" src={pound}/>
               </div>
               <div id="price">
-                <p id="quantity">100.00</p>
+                <input type="text" id="quantity" placeholder='100.00'/>
               </div>
             </div>
           </fieldset>
