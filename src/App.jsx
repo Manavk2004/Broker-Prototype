@@ -2,8 +2,32 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
+  //states
   const [price, setPrice] = useState(0)
+  const [orders, setOrders] = useState([])
+  const [currentPrice, setCurrentPrice] = useState("2116.45")
 
+  //functions
+
+  function storeOrders(){
+    setOrders((prevOrders) => {
+      return [...prevOrders, {
+        time: new Date().toISOString(),
+        amountPaid: price,
+        pricePerOz: currentPrice,
+        goldSold: price / Number(currentPrice)
+      }]
+    })
+  }
+
+  useEffect(() =>{
+    console.log(orders)
+  })
+
+
+
+
+  //useEffect tests
   useEffect(()=>{
     console.log(price)
   }, [price])
@@ -17,7 +41,7 @@ function App() {
       <div id="information">
           <fieldset class="price-box" id="price-box1">
             <legend id="legend">Live prices 🟢</legend>
-            <div>£2116.45 / Oz*</div>
+            <div>£{currentPrice} / Oz*</div>
           </fieldset>
           <fieldset class="price-box" id="price-box2">
             <legend id="legend">Amount to Invest</legend>
@@ -30,7 +54,7 @@ function App() {
               </div>
             </div>
           </fieldset>
-          <button>Invest Now!</button>
+          <button onClick={storeOrders}>Invest Now!</button>
           <div id="measurement">
             <p>* 1oz = 1 troy ounce of 24 Carat Gold</p>
           </div>
