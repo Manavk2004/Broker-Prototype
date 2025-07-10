@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import goldBar from "../public/gold-bar.png"
+import pound from "../public/pound.png"
 import './App.css'
 
 function App() {
@@ -12,14 +13,25 @@ function App() {
         <img src={goldBar}/>
       </div>
       <div id="information">
-        <fieldset id="price-box">
-          <legend id="legend">Live prices 🟢</legend>
-          <div>£2116.45 / Oz*</div>
-        </fieldset>
-        <fieldset id="price-box">
-          <legend id="legend">Amount to Invest</legend>
-          <div>£2116.45 / Oz*</div>
-        </fieldset>
+          <fieldset class="price-box" id="price-box1">
+            <legend id="legend">Live prices 🟢</legend>
+            <div>£2116.45 / Oz*</div>
+          </fieldset>
+          <fieldset class="price-box" id="price-box2">
+            <legend id="legend">Amount to Invest</legend>
+            <div id="price-row">
+              <div id="pound-unit">
+                <img id="pound-img" src={pound}/>
+              </div>
+              <div id="price">
+                <p id="quantity">100.00</p>
+              </div>
+            </div>
+          </fieldset>
+          <button>Invest Now!</button>
+          <div id="measurement">
+            <p>* 1oz = 1 troy ounce of 24 Carat Gold</p>
+          </div>
       </div>
       
     </>
