@@ -1,0 +1,45 @@
+import fs from "fs"
+import path from "path"
+
+
+const types = {
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".jsx": "text/javascript", 
+    ".png": "image/png",
+    ".jpg": "image/jpg",
+    ".svg": "image/svg+xml",
+    ".json": "application/json"
+}
+
+function basicInfo(filePath, res, data){
+    const ext = path.extname(filePath)
+    let contentType = types[ext]
+    res.setHeader("Content-Type", contentType)
+    res.statusCode = 200
+    res.end(data)
+}
+
+
+export async function serveFile(__dirname, res, url){
+    let filePath = path.join(__dirname, url)
+    console.log(filePath)
+
+    if(url === "/api"){
+        filePath = path.join(__dirname, "index.html")
+    }else if (url === "/favicon.ico"){
+        res.writeHead(204)
+        res.end()
+    }
+
+    await fs.readFile(filePath, (err, data)=>{
+        if (err){
+            res.setHeader("Content-Type", "text/html")
+            res.statusCode = 500
+            res.end("Internal Server Error")
+        }else{
+            basicInfo(filePath, res, data)
+        }
+    })
+}

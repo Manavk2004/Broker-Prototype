@@ -1,10 +1,14 @@
-import { useState } from 'react'
-import goldBar from "../public/gold-bar.png"
-import pound from "../public/pound.png"
+import { useEffect, useState } from 'react'
+import goldBar from "./gold-bar.png"
+import pound from "./pound.png"
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [price, setPrice] = useState(0)
+
+  useEffect(()=>{
+    console.log(price)
+  }, [price])
 
   return (
     <>
@@ -24,7 +28,7 @@ function App() {
                 <img id="pound-img" src={pound}/>
               </div>
               <div id="price">
-                <input type="text" id="quantity" placeholder='100.00'/>
+                <input onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00'/>
               </div>
             </div>
           </fieldset>
