@@ -22,7 +22,9 @@ function App() {
   function* displayOrders(){
     for(const order of orderCache.current){
       yield(
-        <p class="order-info">{order}</p>
+        <div class="info-container">
+          <p class="order-info">{order}</p>
+        </div>
       )
     }
   }
