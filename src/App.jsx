@@ -109,7 +109,13 @@ function App() {
         </>
       }
       {myOrders && (
-        <div id="information-page-container">{formatOrders(orders)}</div>
+        <>
+          <nav id="order-navBar">
+            <a id="nav-button" onClick={() => setMyOrders(false)}>Invest</a>
+          </nav>
+          <h1 id="order-title">Your Orders</h1>
+          <div id="information-page-container">{formatOrders(orders)}</div>
+        </>
       )}
     </>
   )
