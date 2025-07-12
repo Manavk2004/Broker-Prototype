@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   //states
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState("")
   const [orders, setOrders] = useState([])
   const [currentPrice, setCurrentPrice] = useState("2116.45")
   const [myOrders, setMyOrders] = useState(false)
@@ -17,6 +17,7 @@ function App() {
 
   function storeOrders(){
      orderCache.current.push([`${new Date().toISOString()}  amountPaid-${price}  pricePerOz:${currentPrice}, goldSold:${price / Number(currentPrice)} `])
+     setPrice(() => "")
   }
 
   function* displayOrders(){
@@ -118,11 +119,11 @@ function App() {
                   <img id="pound-img" src="/pound.png"/>
                 </div>
                 <div id="price">
-                  <input onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00'/>
+                  <input onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00' value={price}/>
                 </div>
               </div>
             </fieldset>
-            <button onClick={storeOrders}>Invest Now!</button>
+            <button id="button" onClick={storeOrders}>Invest Now!</button>
             <div id="measurement">
               <p>* 1oz = 1 troy ounce of 24 Carat Gold</p>
             </div>
