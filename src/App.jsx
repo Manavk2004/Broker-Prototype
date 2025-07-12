@@ -7,6 +7,7 @@ function App() {
   const [orders, setOrders] = useState([])
   const [currentPrice, setCurrentPrice] = useState("2116.45")
   const [myOrders, setMyOrders] = useState(false)
+  const [available, setAvailable] = useState(false)
   
 
   //refs
@@ -109,8 +110,18 @@ function App() {
           </div>
           <div id="information">
             <fieldset class="price-box" id="price-box1">
-              <legend id="legend">Live prices 🟢</legend>
-              <div>£{currentPrice} / Oz*</div>
+              { available &&
+                <>
+                  <legend id="legend">Live prices 🟢</legend>
+                  <div class="current-price-div">£{currentPrice} / Oz*</div>
+                </>
+              }
+              { !available &&
+                <>
+                  <legend id="legend">Disconnected 🔴</legend>
+                  <div class="current-price-div">£----.-- / Oz*</div>
+                </>
+              }
             </fieldset>
             <fieldset class="price-box" id="price-box2">
               <legend id="legend">Amount to Invest</legend>
@@ -119,7 +130,7 @@ function App() {
                   <img id="pound-img" src="/pound.png"/>
                 </div>
                 <div id="price">
-                  <input onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00' value={price}/>
+                  <input onClick={()=> setAvailable(() => true) }onChange={(e) => setPrice(e.target.value)} type="text" id="quantity" placeholder='100.00' value={price}/>
                 </div>
               </div>
             </fieldset>

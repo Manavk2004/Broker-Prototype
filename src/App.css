@@ -55,6 +55,10 @@ body{
   align-items: center;
 }
 
+.current-price-div{
+  margin-left: 10px;
+}
+
 
 .price-box{
   border: 2.4px solid rgb(250, 198, 24);
