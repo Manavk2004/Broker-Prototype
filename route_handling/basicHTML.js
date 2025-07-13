@@ -32,6 +32,16 @@ export async function serveFile(__dirname, res, url){
     }else if (url === "/favicon.ico"){
         res.writeHead(204)
         res.end()
+    }else if(url === "./report.pdf"){
+        await fs.readFile("./report.pdf", (err, data) =>{
+            if(err){
+                res.statusCode(500)
+                res.end("Error reading file")
+                return
+            }
+            res.writeHead(200, { "Content-Type": "application/pdf" })
+            res.end(data)
+        })
     }
 
     await fs.readFile(filePath, (err, data)=>{

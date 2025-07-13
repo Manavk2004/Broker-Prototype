@@ -46,15 +46,17 @@ function App() {
   }
 
   const orderElements = [...displayOrders()]
+  console.log("Order Elements", orderElements)
 
-  // console.log("The order Elements", orderElements)
-
-
-
-  // useEffect(()=>{
-  //   console.log("Here are the orders", orders)
-  // }, [orders])
-
+  function fetchURL(){
+    try{
+      fetch("https://localhost:8000/api/report.pdf")
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   return (
     <>
@@ -112,6 +114,10 @@ function App() {
           <div id="information-page-container">
             {orderElements}
           </div>
+
+          <button onClick={fetchURL} id="pdf-generator">
+            Order PDF
+          </button>
 
         </>
       )}

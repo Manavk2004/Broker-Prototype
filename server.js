@@ -10,6 +10,7 @@ const server = http.createServer(async (req, res) =>{
     console.log(`This is the url ${req.url}`)
     if (req.method === "GET"){
         return await serveFile(__dirname, res, req.url)
+    
 }})
 
 server.listen(PORT, () => {

@@ -229,3 +229,20 @@ body{
   outline: none;
 }
 
+#pdf-generator{
+  width: 120px;
+  height: 50px;
+  background: linear-gradient(to right, yellow, orange);
+  color: black;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-family: Roboto;
+  border: 2px solid rgb(97, 86, 8);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#pdf-generator:hover{
+  box-shadow: 3px 3px 12px 0px black
+}
